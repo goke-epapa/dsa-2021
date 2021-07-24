@@ -83,6 +83,19 @@ function containsCommonItemUsingSet(array1, array2) {
     return false;
 }
 
+/**
+ * Using inbuilt methods
+ * 
+ * Time complexity - O(m + n)
+ * Space complexity - O(m)
+ * 
+ * @param {array} array1 
+ * @param {array} array2 
+ */
+function containsCommonItemUsingInBuiltFunctions(array1, array2) {
+    return array1.some(element => {array2.includes(element)});
+}
+
 const dataProvider = [
     [
         ['a', 'b', 'c'],
@@ -118,6 +131,18 @@ const dataProvider = [
         ['a', 'b', 'c'],
         ['d', 'e'],
         containsCommonItemUsingSet,
+        false
+    ],
+    [
+        ['a', 'b', 'c'],
+        ['c', 'd'],
+        containsCommonItemUsingInBuiltFunctions,
+        true
+    ],
+    [
+        ['a', 'b', 'c'],
+        ['d', 'e'],
+        containsCommonItemUsingInBuiltFunctions,
         false
     ],
 ];
