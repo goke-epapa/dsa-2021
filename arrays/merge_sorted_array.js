@@ -53,7 +53,10 @@ function validateArray(inputArray) {
     if(!inputArray || !(inputArray instanceof Array)) {
         return false;
     }
+
+    return true;
 }
 
 console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 console.log(mergeSortedArrays([4, 6, 30], [0, 3, 4, 31]));
+console.log(mergeSortedArrays([-10,-9,-8,1000], [0, 3, 4, 31]));
