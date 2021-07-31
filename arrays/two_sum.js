@@ -33,7 +33,7 @@ function twoSumBruteForce(nums, target) {
  * @param {number} target 
  */
  function twoSumUsingMap(nums, target) {
-    if(!nums || !(nums instanceof Array) || !target || typeof target !== 'number') {
+    if(!(nums instanceof Array) || typeof target !== 'number') {
         return 'invalid input';
     }
 
@@ -41,10 +41,6 @@ function twoSumBruteForce(nums, target) {
 
     for(let i = 0; i < nums.length; i++) {
         const differenceToSum = target - nums[i];
-
-        if(differenceToSum < 0) {
-            continue;
-        }
 
         if (map.has(differenceToSum)) {
             return [map.get(differenceToSum), i];
@@ -66,6 +62,18 @@ const dataProvider = [
         9,
         twoSumUsingMap,
         [0, 1]
+    ],
+    [
+        [0, 4, 3, 0],
+        0,
+        twoSumUsingMap,
+        [0, 3]
+    ],
+    [
+        [-3,4,3,90],
+        0,
+        twoSumUsingMap,
+        [0, 2]
     ]
 ]
 
@@ -73,6 +81,7 @@ const dataProvider = [
 dataProvider.forEach((element, index) => {
     console.time(index);
     let solution = element[2](element[0], element[1]);
+    console.log(solution);
     solution = element[0][solution[0]] + element[0][solution[1]];
     
     let result = element[1] == (solution) ? "Passed" : "Failed";
