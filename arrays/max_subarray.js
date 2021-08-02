@@ -49,12 +49,13 @@ function maxSubArrayBruteForce(nums) {
  */
  function maxSubArrayWithDynamicProgramming(nums) {
     let localMax = 0;
-    let globalMax = Number.MIN_VALUE;
+    let globalMax = Number.MIN_SAFE_INTEGER;
 
     for (let i = 0; i < nums.length; i++) {
-        localMax = Math.max(0, localMax + nums[i]);
+        localMax += nums[i];
 
-        globalMax = Math.max(localMax, globalMax);
+        globalMax = globalMax > localMax ? globalMax : localMax;
+        localMax = localMax > 0 ? localMax : 0;
     }
 
     return globalMax;
@@ -79,6 +80,11 @@ const dataProvider = [
     [
         [5, 4, -1, 7, 8],
         23,
+        maxSubArrayWithDynamicProgramming
+    ],
+    [
+        [-1],
+        -1,
         maxSubArrayWithDynamicProgramming
     ]
 ]
