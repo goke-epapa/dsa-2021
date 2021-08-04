@@ -47,11 +47,11 @@ function containsDuplicate(nums) {
  * @return {boolean} 
  */
  function containsDuplicateWithMap(nums) {
-    const map = {};
+    const map = {}, n = nums.length;
 
-    for (let i = 0; i < nums.length; i++) {
+    for (let i = 0; i < n; i++) {
         const element = nums[i];
-        if(map[element]) {
+        if(typeof map[element] !== 'undefined') {
             return true;
         }
         map[nums[i]] = 1;
