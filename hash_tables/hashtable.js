@@ -18,6 +18,8 @@ class HashTable {
 
     /**
      * Sets the value for a given key
+     * O(n)
+     * 
      * @param {string} key 
      * @param {*} value 
      */
@@ -33,6 +35,8 @@ class HashTable {
 
     /**
      * Gets the value for the given key
+     * Would be O(1) unless there are many collisions, in that case, it tends towards O(n)
+     * 
      * @param {string} key
      * @return {*} 
      */
@@ -51,7 +55,7 @@ class HashTable {
 }
 
 const hashtable = new HashTable(50);
-hashtable.set("Goke", 30);
+hashtable.set("Goke", 30); // O(n)
 hashtable.set("Obasa", 32);
 hashtable.set("Jide", 31);
 
