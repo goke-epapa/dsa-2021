@@ -40,7 +40,7 @@ class HashTable {
         const currentBucket = this.data[this._hash(key)];
         if(currentBucket) {
             for(let i = 0; i < currentBucket.length; i++) {
-                if(currentBucket[i][0] == key) {
+                if(currentBucket[i][0] === key) {
                     return currentBucket[i][1];
                 }
             }
